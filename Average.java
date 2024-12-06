@@ -15,7 +15,7 @@ public class Average{
    }
    public float getMarks()
    {
-       return studentMark;
+       return studentMark; 
    }
 
 
