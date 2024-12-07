@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "studentSearch",
+            "request": "launch",
+            "mainClass": "studentSearch",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Launch File",
             "request": "launch",
             "mainClass": "${file}"
