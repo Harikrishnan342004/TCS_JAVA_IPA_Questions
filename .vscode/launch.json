@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Soluion",
+            "request": "launch",
+            "mainClass": "OOPS.Soluion",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
+            "name": "studentStudent",
+            "request": "launch",
+            "mainClass": "studentStudent",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Main",
             "request": "launch",
             "mainClass": "Main",
