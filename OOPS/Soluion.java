@@ -1,4 +1,4 @@
-package OOPS; // Add this only if your file is in the OOPS package
+package OOPS; // Add this only if your file is in the OOPS package 
 class Solution
 {
     void walk()

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Java_String_Reverse",
+            "request": "launch",
+            "mainClass": "OOPS.Java_String_Reverse",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Soluion",
             "request": "launch",
             "mainClass": "OOPS.Soluion",
