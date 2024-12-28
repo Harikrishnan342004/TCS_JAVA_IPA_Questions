@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Recursion",
+            "request": "launch",
+            "mainClass": "Recursion",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Java_String_Reverse",
             "request": "launch",
             "mainClass": "OOPS.Java_String_Reverse",

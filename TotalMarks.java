@@ -16,6 +16,7 @@ public class TotalMarks {
         }
 
         System.out.println(totalMarks);
+        sc.close();
     
     }
 }
