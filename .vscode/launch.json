@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MilitanMain",
+            "request": "launch",
+            "mainClass": "MilitanMain",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Recursion",
             "request": "launch",
             "mainClass": "Recursion",
