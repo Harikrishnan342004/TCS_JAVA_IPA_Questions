@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "HotelMain",
+            "request": "launch",
+            "mainClass": "HotelMain",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
+            "name": "Neon",
+            "request": "launch",
+            "mainClass": "Neon",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "Solution",
             "request": "launch",
             "mainClass": "Solution",

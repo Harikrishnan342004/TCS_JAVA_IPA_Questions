@@ -2,54 +2,53 @@ import java.util.*;
 
 class Smartphone
 {
-   private int productid;
-   private String brandname;
-   private String rom;
-   private double price;
+    private int productId;
+    private String brandname;
+    private String rom;
+    private double price;
 
-    public Smartphone(int productid ,String brandname, String rom ,double price)
+    public Smartphone(int productId ,String brandname ,String rom ,double price)
     {
-       this.productid = productid;
-       this.brandname = brandname;
-       this.rom = rom;
-       this.price = price;
+      this.productId = productId;
+      this.brandname = brandname;
+      this.rom = rom;
+      this.price = price;
     }
 
-    public int getProductId()
+    public int getid()
     {
-        return productid;
+        return productId;
     }
-    public void setProductId(int newProductid)
+    public void setid(int nId)
     {
-        this.productid = newProductid;
+        this.productId = nId;
     }
 
-    public String getBrandname()
+    public String getName()
     {
         return brandname;
     }
-    public void setBrandname(String newBrandname)
+    public void setName(String nName)
     {
-       this.brandname = newBrandname;
+        this.brandname = nName;
     }
 
-    public String getRom()
+    public String getrom()
     {
         return rom;
     }
-    public void setRom(String newRom)
+    public void setrom(String nRom)
     {
-        this.rom = newRom;
+        this.rom = nRom;
     }
 
-    public double getPrice()
+    public double getprice()
     {
         return price;
     }
-    public void setPrice(double newPrice)
+    public void setprice(double nPrice)
     {
-        this.price = newPrice; 
-
+        this.price = nPrice;
     }
 
 }
@@ -57,9 +56,9 @@ class Smartphone
 public class Solution {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
         int N = sc.nextInt();
-        Smartphone[] m = new Smartphone[N];
+
+        LinkedHashSet<Smartphone> set = new LinkedHashSet<>();
 
         for(int i = 0 ; i < N ; i++)
         {
@@ -68,51 +67,72 @@ public class Solution {
             String rom = sc.nextLine();
             double price = sc.nextDouble();
 
-            m[i] = new Smartphone(id , name , rom , price);
+            set.add(new Smartphone(id, name, rom, price));
         }
-
-        String BrandName = sc.nextLine();
+        sc.nextLine();
+        String Bname = sc.nextLine();
         double startRange = sc.nextDouble();
         double endRange = sc.nextDouble();
 
-        ArrayList<Smartphone> fillterByBrand = filterTheSmartPhoneByBrandName(m, BrandName);
-        if (true) 
+        ArrayList<Smartphone> res = filterTheSmartPhoneByBrandName(set, Bname);
+        if(res.isEmpty())
         {
-            
+         System.out.println("No mobile found with mentioned brand name");    
         }
-       
-    }
-
-
-    public static ArrayList<Smartphone> filterTheSmartPhoneByBrandName(Smartphone[] m , String SPName )
-    {
-       ArrayList<Smartphone> AnsId = new ArrayList<>();
-       for(int i = 0 ; i < m.length ; i++)
-       {
-         if(m[i].getBrandname() == SPName )
-         {
-            AnsId.add(m[i]);
-         } 
-       } 
-       return AnsId;
-    }
-    public static ArrayList<Smartphone> findTheSmartPhoneWithMaxPriceInGivenPriceRange(Smartphone[] m , double startRange , double  endRange)
-    {
-    ArrayList<Smartphone> maxPriceList = new ArrayList<>();
-    double maxPrice = Double.MIN_VALUE;
-    for (int i = 0; i < m.length; i++) {
-        if (m[i].getPrice() >= startRange && m[i].getPrice() <= endRange) {
-            if (m[i].getPrice() > maxPrice) {
-                maxPrice = m[i].getPrice();
-                maxPriceList.clear(); // Clear the list for the new maximum price
-                maxPriceList.add(m[i]);
-            } else if (m[i].getPrice() == maxPrice) {
-                maxPriceList.add(m[i]);
+        else
+        {
+            for(Smartphone e: res)
+            {
+              System.out.println(e.getid());
+              System.out.println(e.getName());
+              System.out.println(e.getrom());
+              System.out.println(e.getprice());  
             }
         }
+
+        Smartphone range = findTheSartWithMaxPriceGivenPriceRange(set, endRange, startRange);
+        if(range == null)
+        {
+         System.out.println("No mobile found in the give price range");    
+        }
+        else
+        {
+              System.out.println(range.getid());
+              System.out.println(range.getName());
+              System.out.println(range.getrom());
+              System.out.println(range.getprice());  
+            
+        }
+
+
+    }
+    public static ArrayList<Smartphone> filterTheSmartPhoneByBrandName(LinkedHashSet<Smartphone> set ,String Bname)
+    {
+          ArrayList<Smartphone> result = new ArrayList<>();
+          for(Smartphone e : set)
+          {
+            if(e.getName().equalsIgnoreCase(Bname))
+            {
+                result.add(e);
+            }
+          }
+          return result;
     }
 
-    return maxPriceList.isEmpty() ? null : maxPriceList;
-       
+    public static Smartphone findTheSartWithMaxPriceGivenPriceRange(LinkedHashSet<Smartphone> set , double endRange , double startRange)
+    {
+        Smartphone maxPricePhone = null;
+
+        for(Smartphone e : set)
+          {
+            if(e.getprice() > startRange && e.getprice() < endRange)
+            {
+                if( maxPricePhone == null || e.getprice() > maxPricePhone.getprice() ) {
+                    maxPricePhone = e;
+                }
+               
+            }
+          }
+          return maxPricePhone;
     }
 }
