@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "MilitantMain",
+            "request": "launch",
+            "mainClass": "MilitantMain",
+            "projectName": "tcs_20e92bd7"
+        },
+        {
+            "type": "java",
             "name": "HotelMain",
             "request": "launch",
             "mainClass": "HotelMain",
